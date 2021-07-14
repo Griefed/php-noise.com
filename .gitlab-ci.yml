@@ -1,0 +1,10 @@
+pages:
+  image: griefed/gitlab-ci-cd:1.0.1
+  stage: deploy
+  script:
+    - echo "Nothing to do...."
+  artifacts:
+    paths:
+      - public
+  only:
+    - master

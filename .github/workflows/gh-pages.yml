@@ -1,0 +1,26 @@
+name: Deploy to GitHub pages
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+      - tests
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  pages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: pwd && ls -al *
+
+      # DEPLOY TO GH-PAGES
+      - name: Deploy to GitHub-Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: public
